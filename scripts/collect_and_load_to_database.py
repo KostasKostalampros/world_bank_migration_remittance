@@ -236,9 +236,6 @@ def import_postgresql_table_data(cursor, table_name, file_path, file_type="CSV",
     with open(file_path, "r") as file:
         cursor.copy_expert(string_copy_statement, file)
 
-    #with open("country.csv", "r") as file:
-        #cursor.copy_expert("""COPY staging.country FROM stdin WITH #DELIMITER ';' CSV HEADER""", file)
-
     return None
 
 
@@ -284,11 +281,11 @@ def main():
 
     # Connect to a PostgreSQL database
     try:
-        connection = psycopg2.connect("host=worldremmit-kostas-instance.cmqcobkebaom.eu-west-2.rds.amazonaws.com \
-                                      port=5431 \
-                                      dbname=main_database \
-                                      user=postgres \
-                                      password=postgres")
+        connection = psycopg2.connect("host=hostname \
+                                      port=posrt \
+                                      dbname=dbname \
+                                      user=user \
+                                      password=password")
     except:
         print("Unable to connect to the database")
 
