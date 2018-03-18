@@ -1,19 +1,19 @@
-# Country Migration and remittance data analysis
+# Country Migration And Remittance Data Analysis
 Time period (2010-2016)
 
-The goal of this task is to programmatically collect migration and remittance data from the World Bank website for all available years.
+The goal of this task is to pro-grammatically collect migration and remittance data from the World Bank website for all available years.
 (http://www.worldbank.org/en/topic/migrationremittancesdiasporaissues/brief/migration-remittances-data)
 
 
 This is the proposed architecture of the solution
 ![Top Level Workflow](https://github.com/KostasKostalampros/world_bank_migration_remittance/blob/master/img/workflow.png)
 
-Proposed tables for the staging schema:
+Proposed tables for the **_staging_** schema:
 - country (id, country)
 - remittance (country_origin_id, country_destination_id, remittance)
 - migration (country_origin_id, country_destination_id, migration)
 
-Proposed tables for the DWH schema:
+Proposed tables for the **_dwh_** schema:
 - country (id, country)
 - corridor (country_origin_id, country_destination_id, remittance, migration)
 
@@ -29,7 +29,7 @@ In the end, we would like this data to be inside a postgresql database that coul
 
 ## First part – Collect and Load
 
-**_collect_and_load_to_database.py_**
+[collect_and_load_to_database.py](scripts/collect_and_load_to_database.py)
 
 The python process carries out the following tasks:
 1. Downloads xlsx files from world bank 
@@ -47,7 +47,7 @@ Some other sub-tasks carried out during parsing:
 
 ## Second Part – Process for Data Warehouse 
 
-**_dwh_process.sql_**
+[dwh_process.sql](scripts/dwh_process.sql)
 
 A free tier service of PostgreSQL engine in Amazon WS can be created to store the migration and remittance data. See example of connection details below:
 - **Endpoint:** xxx.xxx.eu-west-2.rds.amazonaws.com
