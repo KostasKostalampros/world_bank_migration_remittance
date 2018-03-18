@@ -4,6 +4,13 @@ Time period (2010-2016)
 The goal of this task is to pro-grammatically collect migration and remittance data from the World Bank website for all available years.
 (http://www.worldbank.org/en/topic/migrationremittancesdiasporaissues/brief/migration-remittances-data)
 
+In the end, we would like this data to be inside a postgresql database that could answer this questions:
+- Top 10 country_to_country by number of migrants
+- Top 10 country_to_country by volume of remittances
+- Top 10 sending countries
+- Top 10 receiving countries
+- Top 10 Net senders
+- Top 10 Net receivers
 
 This is the proposed architecture of the solution
 ![Top Level Workflow](https://github.com/KostasKostalampros/world_bank_migration_remittance/blob/master/img/workflow.png)
@@ -16,15 +23,6 @@ Proposed tables for the **_staging_** schema:
 Proposed tables for the **_dwh_** schema:
 - country (id, country)
 - corridor (country_origin_id, country_destination_id, remittance, migration)
-
-
-In the end, we would like this data to be inside a postgresql database that could answer this questions:
-- Top 10 country_to_country by number of migrants
-- Top 10 country_to_country by volume of remittances
-- Top 10 sending countries
-- Top 10 receiving countries
-- Top 10 Net senders
-- Top 10 Net receivers
 
 
 ## First part – Collect and Load
